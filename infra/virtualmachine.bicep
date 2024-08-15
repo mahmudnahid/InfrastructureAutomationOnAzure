@@ -259,7 +259,7 @@ resource vmExtension1 'Microsoft.Compute/virtualMachines/extensions@2023-09-01' 
     autoUpgradeMinorVersion: true
     settings: {
       fileUris: [
-        'https://raw.githubusercontent.com/WIP-2024/CloudNine/main/env_setup/vm_setup.sh'
+        'https://raw.githubusercontent.com/mahmudnahid/InfrastructureAutomationOnAzure/main/env_setup/vm_setup.sh'
       ]
     }
     protectedSettings: {
@@ -501,7 +501,7 @@ resource vmExtension2 'Microsoft.Compute/virtualMachines/extensions@2023-09-01' 
     autoUpgradeMinorVersion: true
     settings: {
       fileUris: [
-        'https://raw.githubusercontent.com/WIP-2024/CloudNine/main/env_setup/vm_setup.sh'
+        'https://raw.githubusercontent.com/mahmudnahid/InfrastructureAutomationOnAzure/main/env_setup/vm_setup.sh'
       ]
     }
     protectedSettings: {
