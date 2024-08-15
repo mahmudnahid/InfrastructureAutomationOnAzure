@@ -33,7 +33,7 @@ sudo apt install supervisor -y
 
 # Clone project repository
 cd /var/www/html
-git clone https://github.com/WIP-2024/CloudNine.git
+git clone https://github.com/mahmudnahid/InfrastructureAutomationOnAzure.git
 
 # For Debugging give permissions. Not appropriate for production environment 
 sudo chmod 755 /var/www/html/ -R
