@@ -95,44 +95,44 @@ resource mysqlSchema1 'Microsoft.DBforMySQL/flexibleServers/databases@2023-06-01
 }
 
 
-resource DataBase2 'Microsoft.DBforMySQL/flexibleServers@2023-06-01-preview' = {
-  name: db2Name
-  location: location2  
-  sku: {
-    name: skuName
-    tier: skuTier
-  }
-  properties: {
-    version: mysqlVersion
-    administratorLogin: administratorLogin
-    administratorLoginPassword: administratorLoginPassword
-    storage: {
-      storageSizeGB: storageSizeGB
-      autoGrow: 'Enabled'
-    }
-    network: {
-      delegatedSubnetResourceId: subnet2Id
-      privateDnsZoneResourceId: privateDnsZone.id
-    }
-    replicationRole: 'Replica'
-    createMode: 'Replica'
-    sourceServerResourceId: DataBase1.id
-  }
-  dependsOn: [
-    privateDnsZone
-    vnetLink2 
-  ]
+// resource DataBase2 'Microsoft.DBforMySQL/flexibleServers@2023-06-01-preview' = {
+//   name: db2Name
+//   location: location2  
+//   sku: {
+//     name: skuName
+//     tier: skuTier
+//   }
+//   properties: {
+//     version: mysqlVersion
+//     administratorLogin: administratorLogin
+//     administratorLoginPassword: administratorLoginPassword
+//     storage: {
+//       storageSizeGB: storageSizeGB
+//       autoGrow: 'Enabled'
+//     }
+//     network: {
+//       delegatedSubnetResourceId: subnet2Id
+//       privateDnsZoneResourceId: privateDnsZone.id
+//     }
+//     replicationRole: 'Replica'
+//     createMode: 'Replica'
+//     sourceServerResourceId: DataBase1.id
+//   }
+//   dependsOn: [
+//     privateDnsZone
+//     vnetLink2 
+//   ]
 
-}
+// }
 
-resource mysqlSchema2 'Microsoft.DBforMySQL/flexibleServers/databases@2023-06-01-preview' = {
-  name: MYSQL_DB_NAME
-  parent: DataBase2
-  properties: {
-    charset: 'utf8'
-    collation: 'utf8_general_ci'
-  }
-}
+// resource mysqlSchema2 'Microsoft.DBforMySQL/flexibleServers/databases@2023-06-01-preview' = {
+//   name: MYSQL_DB_NAME
+//   parent: DataBase2
+//   properties: {
+//     charset: 'utf8'
+//     collation: 'utf8_general_ci'
+//   }
+// }
 
 
 output primaryDbFQDN string = DataBase1.properties.fullyQualifiedDomainName
