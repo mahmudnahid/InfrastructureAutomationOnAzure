@@ -1,0 +1,76 @@
+{% extends "main.html" %}
+
+
+{% block content %}
+
+    <!-- Shop Details Section Begin -->
+    <section class="shop-details">
+        <div class="product__details__pic">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product__details__breadcrumb">
+                            <a href="/">Home</a>
+                            <span>Product Details</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                            <div style="width: 50%; margin: auto;">
+                                    <img src={{product.image.url}} alt="" width="50%">
+                                </div>
+                            </div>
+                    
+                </div>
+                
+                 
+                
+            </div>
+                </div>
+            </div>
+        </div>
+        <div class="product__details__content">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="product__details__text">
+                            <h4>{{product.title}}</h4>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <span> - {{product.rating.count}} Reviews</span>
+                            </div>
+                            <!--  In the code below we are using widthratio tag for multiplication -->
+                            <h3>${{product.price}} <span>${% widthratio product.price 1 2 %}</span></h3>
+                            <p>{{product.description}}</p>
+                            </div>
+                            <div class="product__details__cart__option" style="width: 50%;margin: auto;padding: 10px;">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="text" value="1">
+                                    </div>
+                                </div>
+                                <a href="/add-to-cart/{{product.id}}" class="primary-btn">add to cart</a>
+                            </div>
+                           
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shop Details Section End -->
+
+    
+    <!-- Related Section End -->
+{% endblock %}
+

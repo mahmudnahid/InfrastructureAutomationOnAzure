@@ -1,0 +1,98 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>Shopping Cart</h4>
+                        <div class="breadcrumb__links">
+                            <a href="/">Home</a>
+                            <span>Shopping Cart</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Shopping Cart Section Begin -->
+    <section class="shopping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="shopping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            {% for cart_item in cart.items.all %}
+                            <tbody>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src={{cart_item.product.image.url}} alt="" >
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>{{cart_item.product.title}}</h6>
+                                            <h5>${{cart_item.get_total_item_price}}</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                     
+                                       <a href="/add-to-cart/{{cart_item.product.id}}"><i class="fa fa-plus" style="padding: 2px; color: black;"></i></a> 
+                                         {{product.quantity}}                                              
+                                        <a href="/remove-one-from-cart/{{cart_item.product.id}}"><i class="fa fa-minus" style="padding: 2px;color: black;"></i></a>
+                                           
+                                  
+                                    </td>
+                                    <td class="cart__price">{{cart_item.get_total_item_price}}</td>
+                                    <td class="cart__close"><a href="/remove-from-cart/{{cart_item.product.id}}"><i class="fa fa-close"></i></a></td>
+                                </tr>
+                                
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                           
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="continue__btn update__btn">
+                                <a href="/">Continue Shopping</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    
+                    <div class="cart__total">
+                        <h6>Ordar Summary</h6>
+                        <ul class="checkout__total__all">
+                            <li>Subtotal <span>{{cart.get_total_price}}</span></li>
+                            <li>Taxes <span>{{cart.get_taxes}}</span></li>
+                            <li>Total <span>{{cart.get_total}}</span></li>
+                        </ul>
+                        <a href="/checkout" class="primary-btn">Proceed to checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shopping Cart Section End -->
+
+    <!-- Footer Section Begin -->
+    
+
+{% endblock %}

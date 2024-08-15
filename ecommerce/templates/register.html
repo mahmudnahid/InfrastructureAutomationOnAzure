@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Male-Fashion | Template</title>
+<style>
+	
+.register_body{
+	background-color: beige;
+}
+.register{
+	height: 400px;
+	width: 400px;
+	background-color: white;
+	margin-top: 150px;
+	margin-left: 500px;
+	color: black;
+	text-align: center;
+	
+	font-size: 40px;
+	border: 2px solid grey;
+}
+ form > input{
+	width: 200px;
+	height: 20px;
+	padding:5px;
+	
+}
+ button{
+	width: 215px;
+	height: 35px;
+	size: 20PX;
+	background-color: black;
+	padding: 10px;
+	color: white;
+}
+
+
+
+</style>
+
+</head>
+
+<body class="register_body">
+
+	<div class="register" >
+		<form action="register" method="POST">
+			{% csrf_token %}
+			Sign Up <br> 
+			<input type="text" name="firstName" placeholder="First Name" required class="inputStyle"> <br>
+			<input type="text" name="lastName" placeholder="Last Name" required class="inputStyle"> <br>
+			<input type="text" name="userName" placeholder="User Name" required class="inputStyle"> <br>
+			<input type="email" name="email" placeholder="Email" required class="inputStyle"> <br>
+			<input type="Password" name="password" placeholder="Password" required> <br>
+			<input type="Password" name="password-repeat" placeholder="Re-enter Password"><br>
+			<button type="submit" name="submit">SUBMIT</button>
+		</form>	
+
+		<div>
+			{% for message in messages %}
+			<h3>{{message}}</h3>
+			{% endfor %}
+		</div>
+
+
+
+
+
+	</div>
+
+</body>
+</html>
