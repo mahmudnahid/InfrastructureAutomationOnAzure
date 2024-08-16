@@ -517,5 +517,6 @@ resource vmExtension2 'Microsoft.Compute/virtualMachines/extensions@2023-09-01' 
 output lb1Id string = loadBalancer1.id
 output lb2Id string = loadBalancer2.id
 
-// output lb1privateIP string = loadBalancer1.properties.frontendIPConfigurations[0].properties.privateIPAddress
-// output lb2privateIP string = loadBalancer2.properties.frontendIPConfigurations[0].properties.privateIPAddress
+output lb1PublicIP string = lbPublicIP1.properties.dnsSettings.fqdn
+output lb2PublicIP string = lbPublicIP2.properties.dnsSettings.fqdn
+

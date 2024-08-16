@@ -1,8 +1,8 @@
 param resourceToken string 
 param location1 string
 param location2 string
-param lb1Id string
-param lb2Id string
+param lb1IP string
+param lb2IP string
 param trafficManagerProfileName string = '${resourceToken}trafficmanProf'
 
 
@@ -23,27 +23,27 @@ resource trafficManager 'Microsoft.Network/trafficmanagerprofiles@2022-04-01' = 
     endpoints: [
       {
         name: '${resourceToken}endpoint1'
-        type: 'Microsoft.Network/trafficManagerProfiles/AzureEndpoints'
+        type: 'Microsoft.Network/trafficManagerProfiles/ExternalEndpoints'
         properties: {
           endpointStatus: 'Enabled'
           endpointLocation: location1
-          targetResourceId: lb1Id
+          target: lb1IP
           // priority: 1
           geoMapping: [
-            'NA' // North America
+            'GEO-NA' // North America
           ]
         }
       }
       {
         name: '${resourceToken}endpoint2'
-        type: 'Microsoft.Network/trafficManagerProfiles/AzureEndpoints'
+        type: 'Microsoft.Network/trafficManagerProfiles/ExternalEndpoints'
         properties: {
           endpointStatus: 'Enabled'
           endpointLocation: location2
-          targetResourceId: lb2Id
+          target: lb2IP
           // priority: 2
           geoMapping: [
-            'EU' // Europe
+            'GEO-EU' // Europe
           ]
         }
       }

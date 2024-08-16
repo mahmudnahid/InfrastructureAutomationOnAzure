@@ -91,7 +91,7 @@ def cart(request):
         except ObjectDoesNotExist:
             return redirect("index")
     else:
-        return render(request,"login.html")
+        return redirect("login")
        
       
 def add_to_cart(request, product_id):
@@ -113,9 +113,9 @@ def add_to_cart(request, product_id):
                 CartItem.objects.create(cart=cart, product=product, quantity=1)
             return redirect("cart")
         except:
-            return redirect("cart")
+            return redirect("login")
     else:
-        redirect("login")
+        return redirect("login")
 
     
 def remove_from_cart(request, product_id):
@@ -132,9 +132,9 @@ def remove_from_cart(request, product_id):
             return redirect("cart")
         
         except:
-            return redirect("cart")   
+            return redirect("login")
     else:
-        redirect("login") 
+        return redirect("login")
 
 
 def remove_single_item(request, product_id):
@@ -154,7 +154,7 @@ def remove_single_item(request, product_id):
         return redirect("cart")
     
     else:
-        redirect("login") 
+        return redirect("login")
 
 
 def checkout(request):
@@ -165,7 +165,7 @@ def checkout(request):
         else:
             return render(request,"checkout.html")
     else:
-        redirect("login")
+        return redirect("login")
 
 
 

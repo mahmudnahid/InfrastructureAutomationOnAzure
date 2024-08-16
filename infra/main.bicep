@@ -139,8 +139,8 @@ module trafficmanager 'trafficman.bicep' = {
     resourceToken: resourceToken
     location1: location1
     location2: location2
-    lb1Id: virtualmachine.outputs.lb1Id
-    lb2Id: virtualmachine.outputs.lb2Id
+    lb1IP: virtualmachine.outputs.lb1PublicIP
+    lb2IP: virtualmachine.outputs.lb2PublicIP
   }
   dependsOn: [
     virtualmachine
